@@ -41,4 +41,4 @@ with total1:
     st.bar_chart(df["MaxHeartRate"])
 
 with total2:
-    st.bar_chart(df["familyHistory"])
+    st.bar_chart(df["FamilyHistory"])
