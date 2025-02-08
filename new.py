@@ -14,28 +14,31 @@ df = pd.read_csv(StringIO(obj["Body"].read().decode("utf-8")))
 # Display DataFrame and Graphs
 
 with st.expander("Dataframe"):
-    st.dataframe(df)
+    st.dataframe(df, use_container_width=True)
 # this are the columns names Age	Sex	CP_Type	BloodPressure	Cholestrol	BloodSugar	ECG	MaxHeartRate	ExerciseAngia	FamilyHistory	Target
 
 total1 , total2, total3 = st.columns(3)
 
 with total1:
-    st.metric(label="Max Heart Rate", value=f'{df["MaxHeartRate"].max()}')
+    st.info('Heart Rate', icon="📈")
+    st.metric(label="Max Heart Rate", value=f'{df["MaxHeartRate"].max()}', delta=0.5)
 
 
 with total2:
+    st.info('Heart Rate', icon="📈")
     st.metric(label="Min Heart Rate", value=f'{df["MaxHeartRate"].min()}')
 
 with total3:
+    st.info('Heart Rate', icon="📈")
     st.metric(label="Mean Heart Rate", value=f'{df["MaxHeartRate"].mean()}')
 
-st.bar_chart(df["Age"])
+st.line_chart(df["Age"])
 st.bar_chart(df["MaxHeartRate"])
 
 total1 , total2 = st.columns(2)
 
 with total1:
-    st.bar_chart(df["maxHeartRate"])
+    st.bar_chart(df["MaxHeartRate"])
 
 with total2:
     st.bar_chart(df["familyHistory"])
